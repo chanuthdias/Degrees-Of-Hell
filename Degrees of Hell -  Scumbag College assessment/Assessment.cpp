@@ -1,44 +1,39 @@
-#include "Assessment.h"
 #include <iostream>
 #include "Assessment.h"
 
-Assessment::Assessment(string assessmentType, int motivationalCost, int successScore, int year) :CSpace(assessmentType, SpaceTypes::assessment), year(year)
+Assessment::Assessment(string assessmentType, int motivationalCost, int successScore, int year) :Activity(assessmentType, SpaceTypes::assessment, motivationalCost), year(year)
 {
-	type = assessmentType;
-	cost = motivationalCost;
 	success = successScore;
-	isCompleted = -1;
 }
 
-void Assessment::Print()
+void Assessment::Print(CPlayer* player)
 {
-	//cout << "assessment = " << type << " cost = " << cost << " success = " << success << endl;
+    if (IsCompleted())
+    {
+        if (CompletedBy()->GetName() != player->GetName())
+        {
+            player->UpdateMotivation(-GetMotivationCost()/2);
+            player->UpdateSuccess(GetSuccessScore()/2);
+            CompletedBy()->UpdateSuccess(GetSuccessScore() / 2);
+            cout << player->GetName() << " helps and achieves " << GetSuccessScore() << endl;
+        }
+    }
+    else
+    {
+        if (player->GetMotivation() >= GetMotivationCost())
+        {
+            player->UpdateMotivation(-GetMotivationCost());
+            player->UpdateSuccess(GetSuccessScore());
 
-}
-
-bool Assessment::IsCompleted()
-{
-	return isCompleted >= 0;
-}
-
-int Assessment::GetMotivationCost()
-{
-	return cost;
+            cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() << " and achieve's " << GetSuccessScore() << endl;
+            
+            SetComplete(player);
+        }
+    }
 }
 
 int Assessment::GetSuccessScore()
 {
 	return success;
 }
-
-void Assessment::SetComplete(int player)
-{
-	isCompleted = player;
-}
-
-int Assessment::CompletedBy()
-{
-	return isCompleted;
-}
-
 

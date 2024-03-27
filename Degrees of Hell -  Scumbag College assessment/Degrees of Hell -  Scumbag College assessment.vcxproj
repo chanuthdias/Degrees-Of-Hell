@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Activity.cpp" />
     <ClCompile Include="Assessment.cpp" />
     <ClCompile Include="CAccusedOfPlagiarism.cpp" />
     <ClCompile Include="CExtraCurricularspaces.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="GameManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Activity.h" />
     <ClInclude Include="Assessment.h" />
     <ClInclude Include="CAccusedOfPlagiarism.h" />
     <ClInclude Include="CExtraCurricularspaces.h" />

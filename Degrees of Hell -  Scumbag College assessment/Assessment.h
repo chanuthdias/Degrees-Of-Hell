@@ -1,23 +1,16 @@
 #pragma once
 #include <iostream>
-#include "CSpace.h"
+#include "Activity.h"
 class Assessment :
-    public CSpace
+    public Activity
 {
     private :
-        string type;
-        int cost;
         int success;
         int year;
-        int isCompleted;
 
     public:
         Assessment(string assessmentsType, int motivationalCost, int successScore, int year);
-        void Print();
-        bool IsCompleted();
-        int GetMotivationCost();
+        void Print(CPlayer* player) override;
         int GetSuccessScore();
-        void SetComplete(int player);
-        int CompletedBy();
 };
 

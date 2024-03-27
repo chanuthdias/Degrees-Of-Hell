@@ -5,15 +5,16 @@
 #include "CHearingSpace.h"
 #include "CSkipClassesSpace.h"
 #include "CAccusedOfPlagiarism.h"
+#include "CExtraCurricularspaces.h"
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "CExtraCurricularspaces.cpp"
+#include <cmath>
 
 
 using namespace std;
 
-void GameManager::ReadSpacesFormFile(string path) 
+bool GameManager::ReadSpacesFormFile(string path)
 {
     string line;
     
@@ -21,21 +22,19 @@ void GameManager::ReadSpacesFormFile(string path)
 
     if (!file.is_open()) {
         cerr << "Error opening the file." << std::endl;
-        return;
+        return false;
     }
 
     while (getline(file, line)) {
 
         string token;
         istringstream iss(line);
-
-        //cout << line << endl;
-
+        
         iss >> token;
 
         switch (stoi(token))
         {
-            case 1: {
+          case 1: {
 
                 string assessmentType;
                 iss >> token;
@@ -74,7 +73,7 @@ void GameManager::ReadSpacesFormFile(string path)
                 iss >> token;
                 int motivationalCost = stoi(token);
 
-                CExtraCurricularspaces* pCSpace = new CExtraCurricularspaces(name, SpaceTypes::hearingSpace, motivationalCost);
+                CExtraCurricularspaces* pCSpace = new CExtraCurricularspaces(name, SpaceTypes::extraCurricularspaces, motivationalCost);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -129,16 +128,13 @@ void GameManager::ReadSpacesFormFile(string path)
                 
         }
     }
+    return true;
 }
 
 void GameManager::GameStart(int rounds)
 {
-	ReadSpacesFormFile("degrees.txt");
-
-    /*for (int i = 0; i < pSpaces.size(); i++)
-    {
-        pSpaces[i] -> Print();
-    }*/
+	if(!ReadSpacesFormFile("degrees.txt"))
+        return;
 
     cout << "Welcome to Scumbag College" << endl << endl;
 
@@ -148,7 +144,7 @@ void GameManager::GameStart(int rounds)
 
         for (int j = 0; j < pPlayers.size(); j++)
         {
-            int r = RandomNumberGenerator::Random();
+            int r = abs(RandomNumberGenerator::Random()) +1;
             cout << pPlayers[j]->GetName() << " spins " << r << endl;
 
             if (pPlayers[j]->Move(r))
@@ -157,8 +153,6 @@ void GameManager::GameStart(int rounds)
             }
 
             pSpaces[pPlayers[j]->GetPosition()]->Print(pPlayers[j]);
-
-            ProcessAssessment(j, pPlayers[j]->GetPosition());
 
             cout << pPlayers[j]->GetName() << " motivation is " << pPlayers[j]->GetMotivation() << " and success is " << pPlayers[j]->GetScore() << endl;
         }
@@ -171,61 +165,6 @@ void GameManager::AddPlayer(string name)
 {
     CPlayer* pNewPlayer = new CPlayer(name);
     pPlayers.push_back(pNewPlayer);
-}
-
-void GameManager::ProcessAssessment(int player, int space) 
-{
-    if (pSpaces[space]->GetType() == SpaceTypes::assessment)
-    {
-        Assessment* pAsmt = (Assessment*)pSpaces[space];
-        if (pAsmt->IsCompleted())
-        {
-            if (pAsmt->CompletedBy() != player)
-            {
-                pPlayers[player]->UpdateMotivation(-pAsmt->GetMotivationCost()/2);
-                pPlayers[player]->UpdateSuccess(pAsmt->GetSuccessScore()/2);
-                pPlayers[pAsmt->CompletedBy()]->UpdateSuccess(pAsmt->GetSuccessScore() / 2);
-                cout << pPlayers[player]->GetName() << " helps and achieves " << pAsmt->GetSuccessScore() << endl;
-            }
-        }
-        else
-        {
-            if (pPlayers[player]->GetMotivation() >= pAsmt->GetMotivationCost())
-            {
-                pPlayers[player]->UpdateMotivation(-pAsmt->GetMotivationCost());
-                pPlayers[player]->UpdateSuccess(pAsmt->GetSuccessScore());
-
-                cout << pPlayers[player]->GetName() << " completes " << pAsmt->GetName() << " for " << pAsmt->GetMotivationCost() << " and achieve's " << pAsmt->GetSuccessScore() << endl;
-                
-                pAsmt->SetComplete(player);
-            }
-        }
-    }
-}
-
-void GameManager::ProcessExtraCurricularActivities(int player, int space)
-{
-    if (pSpaces[space]->GetType() == SpaceTypes::extraCurricularspaces)
-    {
-        CExtraCurricularspaces* pEcur = (CExtraCurricularspaces*)pSpaces[space];
-        if (pEcur->IsCompleted())
-        {
-            if (pEcur->CompletedBy() != player)
-            {
-                pPlayers[player]->UpdateMotivation(-pEcur->GetMotivationCost() / 2);
-                pPlayers[pEcur->CompletedBy()]->UpdateMotivation(pEcur->GetMotivationCost());
-                cout << pPlayers[player]->GetName() << " motivates " << pPlayers[pEcur->CompletedBy()]->GetName() << " by joining their activity" << endl;
-            } 
-        }
-        else
-        {
-            if (pPlayers[player]->GetMotivation() >= pEcur->GetMotivationCost())
-            {
-                pPlayers[player]->UpdateMotivation(-pEcur->GetMotivationCost());
-                pEcur->SetComplete(player);
-            }
-        }
-    }
 }
 
 void GameManager::GameOver()

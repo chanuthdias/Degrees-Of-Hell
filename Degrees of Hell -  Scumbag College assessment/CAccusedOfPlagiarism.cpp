@@ -1,4 +1,4 @@
-#include "CSpace.h"
+
 #include "CAccusedOfPlagiarism.h"
 
 void CAccusedOfPlagiarism::Print(CPlayer *player)

@@ -1,5 +1,4 @@
 #include "CSpace.h"
-#include "CPlayer.h"
 
 CSpace::CSpace(string name, SpaceTypes type) :name(name),type(type)
 {

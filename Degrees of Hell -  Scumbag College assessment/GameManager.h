@@ -11,7 +11,7 @@ class GameManager
 		vector<CPlayer*>pPlayers;
 
 	public:
-		void ReadSpacesFormFile(string path);
+		bool ReadSpacesFormFile(string path);
 		void GameStart(int rounds);
 		void AddPlayer(string name);
 		void ProcessAssessment(int player, int space);
