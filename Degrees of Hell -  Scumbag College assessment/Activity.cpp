@@ -1,6 +1,6 @@
 #include "Activity.h"
 
-Activity::Activity(string name, SpaceTypes type, int motivationalCost) : CSpace(name, type)
+Activity::Activity(string name, int motivationalCost) : CSpace(name)
 {
     cost = motivationalCost;
     CompletedByPlayer = nullptr;

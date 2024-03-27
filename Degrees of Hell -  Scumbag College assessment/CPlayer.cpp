@@ -56,5 +56,10 @@ void CPlayer::UpdateMotivation(int delta)
 void CPlayer::UpdateSuccess(int gamma)
 {
 	success += gamma;
+
+	if (success < 0)
+	{
+		success = 0;
+	}
 }
 

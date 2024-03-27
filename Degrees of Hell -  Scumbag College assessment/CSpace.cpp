@@ -1,6 +1,6 @@
 #include "CSpace.h"
 
-CSpace::CSpace(string name, SpaceTypes type) :name(name),type(type)
+CSpace::CSpace(string name) :name(name)
 {
 
 }
@@ -15,9 +15,3 @@ string CSpace::GetName()
 {
 	return name;
 }
-
-SpaceTypes CSpace::GetType()
-{
-	return type;
-}
-

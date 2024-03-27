@@ -6,11 +6,11 @@
 #include "CSkipClassesSpace.h"
 #include "CAccusedOfPlagiarism.h"
 #include "CExtraCurricularspaces.h"
+#include "CBonusSpaces.h"
 #include <fstream>
 #include <string>
 #include <sstream>
-#include <cmath>
-
+#include "CBogusSpaces.h"
 
 using namespace std;
 
@@ -34,7 +34,7 @@ bool GameManager::ReadSpacesFormFile(string path)
 
         switch (stoi(token))
         {
-          case 1: {
+            case 1: {
 
                 string assessmentType;
                 iss >> token;
@@ -60,7 +60,7 @@ bool GameManager::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CSpace* pCSpace = new CSpace(name,SpaceTypes::space);
+                CSpace* pCSpace = new CSpace(name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -73,10 +73,28 @@ bool GameManager::ReadSpacesFormFile(string path)
                 iss >> token;
                 int motivationalCost = stoi(token);
 
-                CExtraCurricularspaces* pCSpace = new CExtraCurricularspaces(name, SpaceTypes::extraCurricularspaces, motivationalCost);
+                CExtraCurricularspaces* pCSpace = new CExtraCurricularspaces(name, motivationalCost);
                 pSpaces.push_back(pCSpace);
 
                 break;
+            }
+            case 4: {
+                iss >> token;
+
+                CBonusSpaces* pCSpace = new CBonusSpaces(token);
+                pSpaces.push_back(pCSpace);
+
+                break;
+
+            }
+            case 5: {
+                iss >> token;
+
+                CBogusSpaces* pCSpace = new CBogusSpaces(token);
+                pSpaces.push_back(pCSpace);
+
+                break;
+
             }
             case 6: {
                 iss >> token;
@@ -84,7 +102,7 @@ bool GameManager::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CHearingSpace* pCSpace = new CHearingSpace(name, SpaceTypes::hearingSpace);
+                CHearingSpace* pCSpace = new CHearingSpace(name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -96,7 +114,7 @@ bool GameManager::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CAccusedOfPlagiarism* pCSpace = new CAccusedOfPlagiarism(name, SpaceTypes::accusedOfPlagiarism);
+                CAccusedOfPlagiarism* pCSpace = new CAccusedOfPlagiarism(name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -108,20 +126,19 @@ bool GameManager::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CSkipClassesSpace* pCSpace = new CSkipClassesSpace(name, SpaceTypes::skipClassesSpace);
+                CSkipClassesSpace* pCSpace = new CSkipClassesSpace(name);
                 pSpaces.push_back(pCSpace);
 
                 break;
 
             }
-
             default: {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
 
-                CSpace* pCSpace = new CSpace(name, SpaceTypes::space);
+                CSpace* pCSpace = new CSpace(name);
                 pSpaces.push_back(pCSpace);
                 break;
             }
@@ -144,7 +161,7 @@ void GameManager::GameStart(int rounds)
 
         for (int j = 0; j < pPlayers.size(); j++)
         {
-            int r = abs(RandomNumberGenerator::Random()) +1;
+            int r = RandomNumberGenerator::Random();
             cout << pPlayers[j]->GetName() << " spins " << r << endl;
 
             if (pPlayers[j]->Move(r))
@@ -185,4 +202,16 @@ void GameManager::GameOver()
     }
 
     cout << pPlayers[winner]->GetName() << " wins. " << endl;
+}
+
+GameManager::~GameManager() {
+    for (int i = 0; i < pPlayers.size(); i++)
+    {
+        delete pPlayers[i];
+    }
+
+    for (int i = 0; i < pSpaces.size(); i++)
+    {
+        delete pSpaces[i];
+    }
 }

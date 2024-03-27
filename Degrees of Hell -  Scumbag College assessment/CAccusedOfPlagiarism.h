@@ -6,6 +6,6 @@ class CAccusedOfPlagiarism :
 {
 public:
     void Print(CPlayer *player)override;
-    CAccusedOfPlagiarism(string name, SpaceTypes type);
+    CAccusedOfPlagiarism(string name);
 };
 

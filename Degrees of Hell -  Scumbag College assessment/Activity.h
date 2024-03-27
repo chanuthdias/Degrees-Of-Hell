@@ -9,7 +9,7 @@ class Activity :
         CPlayer* CompletedByPlayer = nullptr;
 
     public:
-        Activity(string name, SpaceTypes type, int motivationalCost);
+        Activity(string name, int motivationalCost);
         bool IsCompleted();
         CPlayer* CompletedBy();
         int GetMotivationCost();

@@ -45,6 +45,12 @@
     <ClCompile Include="Activity.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CBonusSpaces.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CBogusSpaces.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CSpace.h">
@@ -75,6 +81,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Activity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CBonusSpaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CBogusSpaces.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

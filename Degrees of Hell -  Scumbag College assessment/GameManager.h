@@ -14,9 +14,8 @@ class GameManager
 		bool ReadSpacesFormFile(string path);
 		void GameStart(int rounds);
 		void AddPlayer(string name);
-		void ProcessAssessment(int player, int space);
-		void ProcessExtraCurricularActivities(int player, int space);
 		void GameOver();
+		~GameManager();
 		
 };
 

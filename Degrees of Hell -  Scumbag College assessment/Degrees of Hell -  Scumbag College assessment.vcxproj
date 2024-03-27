@@ -130,6 +130,8 @@
     <ClCompile Include="Activity.cpp" />
     <ClCompile Include="Assessment.cpp" />
     <ClCompile Include="CAccusedOfPlagiarism.cpp" />
+    <ClCompile Include="CBogusSpaces.cpp" />
+    <ClCompile Include="CBonusSpaces.cpp" />
     <ClCompile Include="CExtraCurricularspaces.cpp" />
     <ClCompile Include="CHearingSpace.cpp" />
     <ClCompile Include="CPlayer.cpp" />
@@ -142,6 +144,8 @@
     <ClInclude Include="Activity.h" />
     <ClInclude Include="Assessment.h" />
     <ClInclude Include="CAccusedOfPlagiarism.h" />
+    <ClInclude Include="CBogusSpaces.h" />
+    <ClInclude Include="CBonusSpaces.h" />
     <ClInclude Include="CExtraCurricularspaces.h" />
     <ClInclude Include="CHearingSpace.h" />
     <ClInclude Include="CPlayer.h" />

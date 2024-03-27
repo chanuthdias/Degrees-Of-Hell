@@ -1,7 +1,7 @@
 #include "CExtraCurricularspaces.h"
 
 
-CExtraCurricularspaces::CExtraCurricularspaces(string name, SpaceTypes type, int motivationalCost):Activity(name, SpaceTypes::extraCurricularspaces, motivationalCost)
+CExtraCurricularspaces::CExtraCurricularspaces(string name, int motivationalCost):Activity(name, motivationalCost)
 {
     
 }

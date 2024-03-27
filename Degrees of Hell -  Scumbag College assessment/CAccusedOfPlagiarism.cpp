@@ -8,6 +8,6 @@ void CAccusedOfPlagiarism::Print(CPlayer *player)
 	player->UpdateMotivation(-50);
 }
 
-CAccusedOfPlagiarism::CAccusedOfPlagiarism(string name, SpaceTypes type):CSpace(name, type)
+CAccusedOfPlagiarism::CAccusedOfPlagiarism(string name):CSpace(name)
 {
 }

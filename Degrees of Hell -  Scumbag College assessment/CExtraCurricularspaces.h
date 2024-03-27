@@ -4,7 +4,7 @@ class CExtraCurricularspaces :
     public Activity
 {
 public:
-    CExtraCurricularspaces(string name, SpaceTypes type, int motivationalCost);
+    CExtraCurricularspaces(string name, int motivationalCost);
     void Print(CPlayer* player) override;
 };
 

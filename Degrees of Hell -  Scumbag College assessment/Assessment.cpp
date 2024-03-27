@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Assessment.h"
 
-Assessment::Assessment(string assessmentType, int motivationalCost, int successScore, int year) :Activity(assessmentType, SpaceTypes::assessment, motivationalCost), year(year)
+Assessment::Assessment(string assessmentType, int motivationalCost, int successScore, int year) :Activity(assessmentType, motivationalCost), year(year)
 {
 	success = successScore;
 }

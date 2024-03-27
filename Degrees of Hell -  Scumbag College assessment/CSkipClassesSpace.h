@@ -6,6 +6,6 @@ class CSkipClassesSpace :
 {
 public:
     void Print(CPlayer *player)override;
-    CSkipClassesSpace(string name, SpaceTypes type);
+    CSkipClassesSpace(string name);
 };
 
