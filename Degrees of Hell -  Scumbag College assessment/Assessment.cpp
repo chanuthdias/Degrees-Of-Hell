@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Assessment.h"
 
-Assessment::Assessment(string assessmentType, int motivationalCost, int successScore, int year) :Activity(assessmentType, motivationalCost), year(year)
+Assessment::Assessment(string assessmentType, int motivationalCost, int successScore, int year) :CSpace(assessmentType), year(year), cost(motivationalCost)
 {
 	success = successScore;
 }
@@ -46,3 +46,24 @@ int Assessment::GetYear()
     return year;
 }
 
+bool Assessment::IsCompleted()
+{
+    if (CompletedByPlayer != nullptr)
+        return true;
+    return false;
+}
+
+shared_ptr<CPlayer> Assessment::CompletedBy()
+{
+    return CompletedByPlayer;
+}
+
+int Assessment::GetMotivationCost()
+{
+    return cost;
+}
+
+void Assessment::SetComplete(shared_ptr<CPlayer> player)
+{
+    CompletedByPlayer = player;
+}

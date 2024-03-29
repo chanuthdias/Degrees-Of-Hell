@@ -42,9 +42,6 @@
     <ClCompile Include="CExtraCurricularspaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Activity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CBonusSpaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,9 +75,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CExtraCurricularspaces.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Activity.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CBonusSpaces.h">
