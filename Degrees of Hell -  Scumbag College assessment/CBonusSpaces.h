@@ -1,19 +1,15 @@
 #pragma once
 #include "CSpace.h"
+#include "Bonus.h"
 #include <vector>
-
-class Bonus {
-public:
-    string name;
-    int motivataionGain;
-    Bonus(string name, int gain) :name(name), motivataionGain(gain) {}
-};
 
 class CBonusSpaces :
     public CSpace
 {
 private:
-    vector<Bonus>BonusList;
+    typedef vector<Bonus> BonusListType;
+    BonusListType BonusList;
+
 public:
     CBonusSpaces(string name);
     void Print(CPlayer* player) override;

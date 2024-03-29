@@ -138,11 +138,13 @@
     <ClCompile Include="CSkipClassesSpace.cpp" />
     <ClCompile Include="CSpace.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="Degrees.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Activity.h" />
     <ClInclude Include="Assessment.h" />
+    <ClInclude Include="Bogus.h" />
+    <ClInclude Include="Bonus.h" />
     <ClInclude Include="CAccusedOfPlagiarism.h" />
     <ClInclude Include="CBogusSpaces.h" />
     <ClInclude Include="CBonusSpaces.h" />
@@ -151,7 +153,7 @@
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="CSkipClassesSpace.h" />
     <ClInclude Include="CSpace.h" />
-    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="Degrees.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

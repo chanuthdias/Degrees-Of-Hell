@@ -20,10 +20,14 @@ bool CPlayer::Move(int spin)
 	if (position >= 36)
 	{
 		position %= 36;
-		motivation += 250;
-		year += 1;
-		return true;
+		if (Assessments[year - 1].size() >= 3)
+		{
+			motivation += 250;
+			year += 1;
+			return true;
+		}
 	}
+
 
 	return false;
 }
@@ -61,5 +65,10 @@ void CPlayer::UpdateSuccess(int gamma)
 	{
 		success = 0;
 	}
+}
+
+void CPlayer::AddCompletedAssessment(int year, string name)
+{
+	Assessments[year - 1].insert(name);
 }
 

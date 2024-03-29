@@ -16,6 +16,8 @@ void Assessment::Print(CPlayer* player)
             player->UpdateSuccess(GetSuccessScore()/2);
             CompletedBy()->UpdateSuccess(GetSuccessScore() / 2);
             cout << player->GetName() << " helps and achieves " << GetSuccessScore() << endl;
+
+            player->AddCompletedAssessment(year, GetName());
         }
     }
     else
@@ -28,6 +30,8 @@ void Assessment::Print(CPlayer* player)
             cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() << " and achieve's " << GetSuccessScore() << endl;
             
             SetComplete(player);
+
+            player->AddCompletedAssessment(year, GetName());
         }
     }
 }

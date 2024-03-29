@@ -24,7 +24,7 @@
     <ClCompile Include="CPlayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameManager.cpp">
+    <ClCompile Include="Degrees.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Assessment.cpp">
@@ -59,7 +59,7 @@
     <ClInclude Include="CPlayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameManager.h">
+    <ClInclude Include="Degrees.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Assessment.h">
@@ -87,6 +87,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CBogusSpaces.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bogus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Bonus.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
