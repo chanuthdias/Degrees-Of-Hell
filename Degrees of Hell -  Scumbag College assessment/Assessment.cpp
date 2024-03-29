@@ -37,3 +37,8 @@ int Assessment::GetSuccessScore()
 	return success;
 }
 
+int Assessment::GetYear()
+{
+    return year;
+}
+

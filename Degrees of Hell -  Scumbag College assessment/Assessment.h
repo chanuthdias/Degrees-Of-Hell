@@ -12,5 +12,6 @@ class Assessment :
         Assessment(string assessmentsType, int motivationalCost, int successScore, int year);
         void Print(CPlayer* player) override;
         int GetSuccessScore();
+        int GetYear();
 };
 
