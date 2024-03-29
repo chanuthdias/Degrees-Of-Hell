@@ -6,11 +6,11 @@
 #include "CSkipClassesSpace.h"
 #include "CAccusedOfPlagiarism.h"
 #include "CExtraCurricularspaces.h"
-#include "CBonusSpaces.h"
 #include <fstream>
 #include <string>
 #include <sstream>
 #include "CBogusSpaces.h"
+#include "CBonusSpaces.h"
 
 using namespace std;
 
@@ -48,7 +48,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 int year = stoi(token);
 
-                Assessment* pNewAssessment = new Assessment(assessmentType, motivationalCost, successScore, year);
+                auto pNewAssessment = make_shared<Assessment> (assessmentType, motivationalCost, successScore, year);
                 pSpaces.push_back(pNewAssessment);
 
                 break;
@@ -60,7 +60,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CSpace* pCSpace = new CSpace(name);
+                auto pCSpace = make_shared<CSpace> (name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -73,7 +73,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 int motivationalCost = stoi(token);
 
-                CExtraCurricularspaces* pCSpace = new CExtraCurricularspaces(name, motivationalCost);
+                auto pCSpace = make_shared<CExtraCurricularspaces> (name, motivationalCost);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -81,7 +81,7 @@ bool Degrees::ReadSpacesFormFile(string path)
             case 4: {
                 iss >> token;
 
-                CBonusSpaces* pCSpace = new CBonusSpaces(token);
+                auto pCSpace = make_shared<CBonusSpaces> (token);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -90,7 +90,7 @@ bool Degrees::ReadSpacesFormFile(string path)
             case 5: {
                 iss >> token;
 
-                CBogusSpaces* pCSpace = new CBogusSpaces(token);
+                auto pCSpace = make_shared<CBogusSpaces> (token);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -102,7 +102,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CHearingSpace* pCSpace = new CHearingSpace(name);
+                auto pCSpace = make_shared<CHearingSpace> (name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -114,7 +114,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CAccusedOfPlagiarism* pCSpace = new CAccusedOfPlagiarism(name);
+                auto pCSpace = make_shared<CAccusedOfPlagiarism> (name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -126,7 +126,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CSkipClassesSpace* pCSpace = new CSkipClassesSpace(name);
+                auto pCSpace = make_shared<CSkipClassesSpace> (name);
                 pSpaces.push_back(pCSpace);
 
                 break;
@@ -138,7 +138,7 @@ bool Degrees::ReadSpacesFormFile(string path)
                 iss >> token;
                 name += " " + token;
 
-                CSpace* pCSpace = new CSpace(name);
+                auto pCSpace = make_shared<CSpace> (name);
                 pSpaces.push_back(pCSpace);
                 break;
             }
@@ -186,7 +186,7 @@ void Degrees::GameStart(int rounds)
 
 void Degrees::AddPlayer(string name) 
 {
-    CPlayer* pNewPlayer = new CPlayer(name);
+    auto pNewPlayer = make_shared<CPlayer> (name);
     pPlayers.push_back(pNewPlayer);
 }
 
@@ -210,14 +210,3 @@ void Degrees::GameOver()
     cout << pPlayers[winner]->GetName() << " wins. " << endl;
 }
 
-Degrees::~Degrees() {
-    for (int i = 0; i < pPlayers.size(); i++)
-    {
-        delete pPlayers[i];
-    }
-
-    for (int i = 0; i < pSpaces.size(); i++)
-    {
-        delete pSpaces[i];
-    }
-}

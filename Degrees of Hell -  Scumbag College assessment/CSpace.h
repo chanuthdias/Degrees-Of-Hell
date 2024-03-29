@@ -11,7 +11,7 @@ class CSpace
 		
 	public:
 		CSpace(string name);
-		virtual void Print(CPlayer *player);
+		virtual void Print(shared_ptr<CPlayer> player);
 		string GetName();
 };
 

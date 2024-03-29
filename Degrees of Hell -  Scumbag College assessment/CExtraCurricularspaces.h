@@ -5,6 +5,6 @@ class CExtraCurricularspaces :
 {
 public:
     CExtraCurricularspaces(string name, int motivationalCost);
-    void Print(CPlayer* player) override;
+    void Print(shared_ptr<CPlayer> player) override;
 };
 

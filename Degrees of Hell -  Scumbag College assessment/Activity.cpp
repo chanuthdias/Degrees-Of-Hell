@@ -13,7 +13,7 @@ bool Activity::IsCompleted()
     return false;
 }
 
-CPlayer* Activity::CompletedBy()
+shared_ptr<CPlayer> Activity::CompletedBy()
 {
     return CompletedByPlayer;
 }
@@ -23,7 +23,7 @@ int Activity::GetMotivationCost()
     return cost;
 }
 
-void Activity::SetComplete(CPlayer* player)
+void Activity::SetComplete(shared_ptr<CPlayer> player)
 {
     CompletedByPlayer = player;
 }

@@ -10,7 +10,7 @@ class Assessment :
 
     public:
         Assessment(string assessmentsType, int motivationalCost, int successScore, int year);
-        void Print(CPlayer* player) override;
+        void Print(shared_ptr<CPlayer> player) override;
         int GetSuccessScore();
         int GetYear();
 };

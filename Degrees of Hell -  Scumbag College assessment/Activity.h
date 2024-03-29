@@ -6,14 +6,14 @@ class Activity :
 {
     private :
         int cost;
-        CPlayer* CompletedByPlayer = nullptr;
+        shared_ptr<CPlayer> CompletedByPlayer = nullptr;
 
     public:
         Activity(string name, int motivationalCost);
         bool IsCompleted();
-        CPlayer* CompletedBy();
+        shared_ptr<CPlayer> CompletedBy();
         int GetMotivationCost();
-        void SetComplete(CPlayer* player);
+        void SetComplete(shared_ptr<CPlayer> player);
 
 };
 

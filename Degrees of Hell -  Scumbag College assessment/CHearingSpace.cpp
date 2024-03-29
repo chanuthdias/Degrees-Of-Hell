@@ -1,6 +1,6 @@
 #include "CHearingSpace.h"
 
-void CHearingSpace::Print(CPlayer *player)
+void CHearingSpace::Print(shared_ptr<CPlayer> player)
 {
 	cout << player->GetName() + " lands on Plagiarism Hearing and supports their friend" << endl;
 }

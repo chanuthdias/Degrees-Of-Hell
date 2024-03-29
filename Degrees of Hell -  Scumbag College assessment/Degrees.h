@@ -7,9 +7,9 @@ using namespace std;
 class Degrees
 {
 	private:
-		typedef vector<CSpace*> spacesVectorType;
+		typedef vector<shared_ptr<CSpace>> spacesVectorType;
 		spacesVectorType pSpaces;
-		typedef vector<CPlayer*>playerVectorType;
+		typedef vector<shared_ptr<CPlayer>>playerVectorType;
 		playerVectorType pPlayers;
 
 	public:
@@ -17,7 +17,6 @@ class Degrees
 		void GameStart(int rounds);
 		void AddPlayer(string name);
 		void GameOver();
-		~Degrees();
 		
 };
 

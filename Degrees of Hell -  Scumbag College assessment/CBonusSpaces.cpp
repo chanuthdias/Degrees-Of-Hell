@@ -15,7 +15,7 @@ CBonusSpaces::CBonusSpaces(string name):CSpace(name)
 	BonusList.push_back(Bonus("Get elected School President", 10));
 }
 
-void CBonusSpaces::Print(CPlayer* player)
+void CBonusSpaces::Print(shared_ptr<CPlayer> player)
 {
 	int r = RandomNumberGenerator::Random()%10;
 

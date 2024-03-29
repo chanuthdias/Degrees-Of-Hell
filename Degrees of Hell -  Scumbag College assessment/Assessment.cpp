@@ -6,7 +6,7 @@ Assessment::Assessment(string assessmentType, int motivationalCost, int successS
 	success = successScore;
 }
 
-void Assessment::Print(CPlayer* player)
+void Assessment::Print(shared_ptr<CPlayer> player)
 {
     if (IsCompleted())
     {

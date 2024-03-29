@@ -12,5 +12,5 @@ private:
 
 public:
     CBogusSpaces(string name);
-    void Print(CPlayer* player) override;
+    void Print(shared_ptr<CPlayer> player) override;
 };

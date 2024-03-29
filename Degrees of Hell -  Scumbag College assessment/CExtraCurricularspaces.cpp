@@ -6,7 +6,7 @@ CExtraCurricularspaces::CExtraCurricularspaces(string name, int motivationalCost
     
 }
 
-void CExtraCurricularspaces::Print(CPlayer* player)
+void CExtraCurricularspaces::Print(shared_ptr<CPlayer> player)
 {
     if (IsCompleted())
     {

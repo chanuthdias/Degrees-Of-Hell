@@ -15,7 +15,7 @@ CBogusSpaces::CBogusSpaces(string name):CSpace(name)
 	BogusList.push_back(Bogus("Lecturer changes assignment schedule.", 20));
 }
 
-void CBogusSpaces::Print(CPlayer* player)
+void CBogusSpaces::Print(shared_ptr<CPlayer> player)
 {
 	int r = RandomNumberGenerator::Random() % 10;
 
