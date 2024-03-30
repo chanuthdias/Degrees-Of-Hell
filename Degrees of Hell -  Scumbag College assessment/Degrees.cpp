@@ -153,6 +153,8 @@ void Degrees::GameStart(int rounds)
 	if(!ReadSpacesFormFile("degrees.txt"))
         return;
 
+    RandomNumberGenerator::SetSeed();
+
     cout << "Welcome to Scumbag College" << endl << endl;
 
     for (int i = 0; i < rounds; i++)

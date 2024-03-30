@@ -138,6 +138,7 @@
     <ClCompile Include="CSpace.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Degrees.cpp" />
+    <ClCompile Include="RandomNumberGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Assessment.h" />

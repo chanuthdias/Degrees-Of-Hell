@@ -10,5 +10,5 @@ int main()
     game.AddPlayer("Rick");
     game.AddPlayer("Neil");
     game.AddPlayer("Mike");
-    game.GameStart(60);
+    game.GameStart(50);
 }
