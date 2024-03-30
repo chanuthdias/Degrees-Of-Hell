@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include "CSpace.h"
+#include "Types.h"
+
 class Assessment :
     public CSpace
 {
@@ -8,7 +10,7 @@ class Assessment :
         int success;
         int year;
         int cost;
-        shared_ptr<CPlayer> CompletedByPlayer = nullptr;
+        playerVectorType CompletedPlayers;
 
     public:
         Assessment(string assessmentsType, int motivationalCost, int successScore, int year);
@@ -16,7 +18,8 @@ class Assessment :
         int GetSuccessScore();
         int GetYear();
         bool IsCompleted();
-        shared_ptr<CPlayer> CompletedBy();
+        bool IsCompleted(shared_ptr<CPlayer> player);
+        playerVectorType CompletedBy();
         int GetMotivationCost();
         void SetComplete(shared_ptr<CPlayer> player);
 };

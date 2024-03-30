@@ -154,6 +154,7 @@
     <ClInclude Include="CSpace.h" />
     <ClInclude Include="Degrees.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
+    <ClInclude Include="Types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

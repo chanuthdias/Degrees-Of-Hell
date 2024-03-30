@@ -8,16 +8,30 @@ Assessment::Assessment(string assessmentType, int motivationalCost, int successS
 
 void Assessment::Print(shared_ptr<CPlayer> player)
 {
+    CSpace::Print(player);
+
     if (IsCompleted())
     {
-        if (CompletedBy()->GetName() != player->GetName())
+        if (!IsCompleted(player))
         {
-            player->UpdateMotivation(-GetMotivationCost()/2);
-            player->UpdateSuccess(GetSuccessScore()/2);
-            CompletedBy()->UpdateSuccess(GetSuccessScore() / 2);
-            cout << player->GetName() << " helps and achieves " << GetSuccessScore() << endl;
-
-            player->AddCompletedAssessment(year, GetName());
+            if (player->GetMotivation() >= GetMotivationCost() / 2)
+            {
+                player->UpdateMotivation(-GetMotivationCost() / 2);
+                player->UpdateSuccess(GetSuccessScore() / 2);
+                CompletedBy()[0]->UpdateSuccess(GetSuccessScore() / 2);
+                cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() / 2 << " and achieves " << GetSuccessScore() / 2 << endl;
+                cout << CompletedBy()[0]->GetName() << " helps and achieves " << GetSuccessScore() / 2 << endl;
+                SetComplete(player);
+                player->AddCompletedAssessment(year, GetName());
+            }
+            else 
+            {
+                cout << player->GetName() << " doesn't have the " << GetMotivationCost() / 2 << " motivation to complete the " << GetName() << endl;
+            }
+        }
+        else 
+        {
+            cout << player->GetName() << " has already completed the " << GetName() << endl;
         }
     }
     else
@@ -27,11 +41,16 @@ void Assessment::Print(shared_ptr<CPlayer> player)
             player->UpdateMotivation(-GetMotivationCost());
             player->UpdateSuccess(GetSuccessScore());
 
-            cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() << " and achieve's " << GetSuccessScore() << endl;
+            cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() << " and achieves " << GetSuccessScore() << endl;
             
             SetComplete(player);
 
             player->AddCompletedAssessment(year, GetName());
+        }
+        else 
+        {
+            cout << player->GetName() << " doesn't have the " << GetMotivationCost() << " motivation to complete the " << GetName() << endl;
+
         }
     }
 }
@@ -48,14 +67,26 @@ int Assessment::GetYear()
 
 bool Assessment::IsCompleted()
 {
-    if (CompletedByPlayer != nullptr)
+    if (CompletedPlayers.size() > 0)
         return true;
     return false;
 }
 
-shared_ptr<CPlayer> Assessment::CompletedBy()
+bool Assessment::IsCompleted(shared_ptr<CPlayer> player)
 {
-    return CompletedByPlayer;
+    for (int i = 0; i < CompletedPlayers.size(); i++)
+    {
+        if(CompletedPlayers[i]->GetName() == player->GetName())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+playerVectorType Assessment::CompletedBy()
+{
+    return CompletedPlayers;
 }
 
 int Assessment::GetMotivationCost()
@@ -65,5 +96,5 @@ int Assessment::GetMotivationCost()
 
 void Assessment::SetComplete(shared_ptr<CPlayer> player)
 {
-    CompletedByPlayer = player;
+    CompletedPlayers.push_back(player);
 }

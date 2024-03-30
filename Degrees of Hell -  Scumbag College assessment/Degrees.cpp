@@ -159,14 +159,16 @@ void Degrees::GameStart(int rounds)
 
     for (int i = 0; i < rounds; i++)
     {
-        cout << endl << "round " << i+1 << endl;
+        cout << endl << "ROUND " << i+1 << endl;
+        cout << "=========" << endl;
 
         for (int j = 0; j < pPlayers.size(); j++)
         {
             int r = RandomNumberGenerator::Random();
             cout << pPlayers[j]->GetName() << " spins " << r << endl;
+            int previousYear = pPlayers[j]->GetYear();
 
-            if (pPlayers[j]->Move(r))
+            if (pPlayers[j]->Move(r) > 0)
             {
                 if (pPlayers[j]->GetYear() == 4)
                 {
@@ -174,12 +176,24 @@ void Degrees::GameStart(int rounds)
                     GameOver();
                     return;
                 }
-                cout << pPlayers[j]->GetName() << " attends Welcome Week and starts year " << pPlayers[j]->GetYear() << " more motivated! " << endl;
+                else 
+                {
+                    if (previousYear != pPlayers[j]->GetYear())
+                    {
+                        cout << pPlayers[j]->GetName() << " attends Welcome Week and starts year " << pPlayers[j]->GetYear() << " more motivated! " << endl;
+
+                    }
+                    else 
+                    {
+                        cout << pPlayers[j]->GetName() << " attends Welcome Week and starts year " << pPlayers[j]->GetYear() << " again " << endl;
+                    }
+                }
             }
+            cout << "position = " << pPlayers[j]->GetPosition() << endl;
 
             pSpaces[pPlayers[j]->GetPosition()]->Print(pPlayers[j]);
 
-            cout << pPlayers[j]->GetName() << " motivation is " << pPlayers[j]->GetMotivation() << " and success is " << pPlayers[j]->GetScore() << endl;
+            cout << pPlayers[j]->GetName() << "'s motivation is " << pPlayers[j]->GetMotivation() << " and success is " << pPlayers[j]->GetScore() << endl << endl;
         }
     }
 
@@ -209,6 +223,6 @@ void Degrees::GameOver()
         }
     }
 
-    cout << pPlayers[winner]->GetName() << " wins. " << endl;
+    cout << endl << pPlayers[winner]->GetName() << " wins! " << endl;
 }
 

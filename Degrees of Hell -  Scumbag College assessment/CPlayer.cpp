@@ -20,15 +20,16 @@ bool CPlayer::Move(int spin)
 	if (position >= 36)
 	{
 		position %= 36;
+		motivation += 250;
+
+		cout << Assessments[year - 1].size() << endl;
+
 		if (Assessments[year - 1].size() >= 3)
 		{
-			motivation += 250;
 			year += 1;
-			return true;
 		}
+		return true;
 	}
-
-
 	return false;
 }
 

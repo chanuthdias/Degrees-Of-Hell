@@ -17,11 +17,12 @@ CBonusSpaces::CBonusSpaces(string name):CSpace(name)
 
 void CBonusSpaces::Print(shared_ptr<CPlayer> player)
 {
-	int r = RandomNumberGenerator::Random()%10;
+	CSpace::Print(player);
 
-	player->UpdateMotivation(BonusList[r].motivataionGain);
+	int r = RandomNumberGenerator::Random();
+	player->UpdateMotivation(BonusList[r - 1].motivataionGain);
 
-	cout << player->GetName() << " lands on Bonus" << endl;
-	cout << BonusList[r].name << " Gain motivation of " << BonusList[r].motivataionGain << endl;
+	cout << player->GetName() << " spins " << r << endl;
+	cout << BonusList[r - 1].name << " Gain motivation of " << BonusList[r - 1].motivataionGain << endl;
 	cout << player->GetName() << " has " << player->GetMotivation() << endl;
 }
