@@ -52,7 +52,7 @@ int CPlayer::GetMotivation( )
 	return mMotivation;
 }
 
-int CPlayer::GetScore( )
+int CPlayer::GetSuccessScore( )
 {
 	return mSuccess;
 }

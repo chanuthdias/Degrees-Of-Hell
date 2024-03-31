@@ -30,22 +30,22 @@
     <ClCompile Include="Assessment.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CHearingSpace.cpp">
+    <ClCompile Include="HearingSpace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CAccusedOfPlagiarism.cpp">
+    <ClCompile Include="AccusedOfPlagiarism.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CSkipClassesSpace.cpp">
+    <ClCompile Include="SkipClassesSpace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CExtraCurricularspaces.cpp">
+    <ClCompile Include="ExtraCurricularspaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CBonusSpaces.cpp">
+    <ClCompile Include="BonusSpaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CBogusSpaces.cpp">
+    <ClCompile Include="BogusSpaces.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="RandomNumberGenerator.cpp">
@@ -68,22 +68,22 @@
     <ClInclude Include="RandomNumberGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CHearingSpace.h">
+    <ClInclude Include="HearingSpace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CAccusedOfPlagiarism.h">
+    <ClInclude Include="AccusedOfPlagiarism.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CSkipClassesSpace.h">
+    <ClInclude Include="SkipClassesSpace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CExtraCurricularspaces.h">
+    <ClInclude Include="ExtraCurricularspaces.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CBonusSpaces.h">
+    <ClInclude Include="BonusSpaces.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CBogusSpaces.h">
+    <ClInclude Include="BogusSpaces.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Bogus.h">

@@ -8,7 +8,7 @@
  *
  * Detailed description if needed.
  */
-class CBonusSpaces :
+class BonusSpaces :
     public CSpace
 {
 private:
@@ -22,7 +22,7 @@ public:
      * @param[in] name Name of the bonus space.
      * @return No return value.
      */
-    CBonusSpaces(string name);
+    BonusSpaces(string name);
 
     /**
      * @brief Handles the action when a player lands on this space.

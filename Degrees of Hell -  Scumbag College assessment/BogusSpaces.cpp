@@ -1,7 +1,7 @@
-#include "CBogusSpaces.h"
+#include "BogusSpaces.h"
 #include "RandomNumberGenerator.h"
 
-CBogusSpaces::CBogusSpaces( string name ):CSpace( name )
+BogusSpaces::BogusSpaces( string name ):CSpace( name )
 {
 	mBogusList.push_back( Bogus ( "Fall asleep in a boring lecture.", 20 ) );
 	mBogusList.push_back( Bogus ( "Meet with coach about poor attendance.", 50 ) );
@@ -15,7 +15,7 @@ CBogusSpaces::CBogusSpaces( string name ):CSpace( name )
 	mBogusList.push_back( Bogus ( "Lecturer changes assignment schedule.", 20 ) );
 }
 
-void CBogusSpaces::Print( shared_ptr<CPlayer> player )
+void BogusSpaces::Print( shared_ptr<CPlayer> player )
 {
 	CSpace::Print( player );
 

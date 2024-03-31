@@ -1,7 +1,7 @@
 
-#include "CAccusedOfPlagiarism.h"
+#include "AccusedOfPlagiarism.h"
 
-void CAccusedOfPlagiarism::Print( shared_ptr<CPlayer> player )
+void AccusedOfPlagiarism::Print( shared_ptr<CPlayer> player )
 {
 	cout << player->GetName( ) + " lands on Accused of Plagiarism and goes to the hearing" << endl;
 	cout << player->GetName( ) + " loses motivation" << endl;
@@ -9,12 +9,12 @@ void CAccusedOfPlagiarism::Print( shared_ptr<CPlayer> player )
 	player->SetPosition(mHearingSpaceIndex);
 }
 
-CAccusedOfPlagiarism::CAccusedOfPlagiarism( string name ):CSpace( name )
+AccusedOfPlagiarism::AccusedOfPlagiarism( string name ):CSpace( name )
 {
 	mHearingSpaceIndex = 32;
 }
 
-void CAccusedOfPlagiarism::SetHearingSpaceIndex(int index)
+void AccusedOfPlagiarism::SetHearingSpaceIndex(int index)
 {
 	mHearingSpaceIndex = index;
 }

@@ -1,11 +1,11 @@
-#include "CExtraCurricularspaces.h"
+#include "ExtraCurricularspaces.h"
 
 
-CExtraCurricularspaces::CExtraCurricularspaces( string name, int motivationalCost ) :CSpace( name ), mCost( motivationalCost )
+ExtraCurricularspaces::ExtraCurricularspaces( string name, int motivationalCost ) :CSpace( name ), mCost( motivationalCost )
 {
 }
 
-void CExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
+void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
 {
     CSpace::Print( player );
 
@@ -43,24 +43,24 @@ void CExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
     }
 }
 
-bool CExtraCurricularspaces::IsCompleted( )
+bool ExtraCurricularspaces::IsCompleted( )
 {
     if ( mCompletedByPlayer != nullptr )
         return true;
     return false;
 }
 
-shared_ptr<CPlayer> CExtraCurricularspaces::CompletedBy( )
+shared_ptr<CPlayer> ExtraCurricularspaces::CompletedBy( )
 {
     return mCompletedByPlayer;
 }
 
-int CExtraCurricularspaces::GetMotivationCost( )
+int ExtraCurricularspaces::GetMotivationCost( )
 {
     return mCost;
 }
 
-void CExtraCurricularspaces::SetComplete( shared_ptr<CPlayer> player )
+void ExtraCurricularspaces::SetComplete( shared_ptr<CPlayer> player )
 {
     mCompletedByPlayer = player;
 }

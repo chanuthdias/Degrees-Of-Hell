@@ -8,7 +8,7 @@
  *
  * Detailed description if needed.
  */
-class CBogusSpaces :
+class BogusSpaces :
     public CSpace
 {
 private:
@@ -22,7 +22,7 @@ public:
      * @param[in] name Name of the bogus space.
      * @return No return value.
      */
-    CBogusSpaces(string name);
+    BogusSpaces(string name);
 
     /**
      * @brief Handles the action when a player lands on this space.

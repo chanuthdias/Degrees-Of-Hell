@@ -1,7 +1,7 @@
-#include "CBonusSpaces.h"
+#include "BonusSpaces.h"
 #include "RandomNumberGenerator.h"
 
-CBonusSpaces::CBonusSpaces( string name ):CSpace( name )
+BonusSpaces::BonusSpaces( string name ):CSpace( name )
 {
 	mBonusList.push_back( Bonus ( "Receive some useful feedback.", 20 ) );
 	mBonusList.push_back( Bonus ( "Win a hackathon.", 50 ) );
@@ -15,7 +15,7 @@ CBonusSpaces::CBonusSpaces( string name ):CSpace( name )
 	mBonusList.push_back( Bonus ( "Get elected School President", 10 ) );
 }
 
-void CBonusSpaces::Print( shared_ptr<CPlayer> player )
+void BonusSpaces::Print( shared_ptr<CPlayer> player )
 {
 	CSpace::Print( player );
 

@@ -2,15 +2,15 @@
 #include "Assessment.h"
 #include "RandomNumberGenerator.h"
 #include "CPlayer.h"
-#include "CHearingSpace.h"
-#include "CSkipClassesSpace.h"
-#include "CAccusedOfPlagiarism.h"
-#include "CExtraCurricularspaces.h"
+#include "HearingSpace.h"
+#include "SkipClassesSpace.h"
+#include "AccusedOfPlagiarism.h"
+#include "ExtraCurricularspaces.h"
 #include <fstream>
 #include <string>
 #include <sstream>
-#include "CBogusSpaces.h"
-#include "CBonusSpaces.h"
+#include "BogusSpaces.h"
+#include "BonusSpaces.h"
 
 using namespace std;
 
@@ -77,7 +77,7 @@ bool Degrees::ReadSpacesFormFile( string path )
                 iss >> token;
                 int motivationalCost = stoi( token );
 
-                auto pCSpace = make_shared<CExtraCurricularspaces> ( name , motivationalCost );
+                auto pCSpace = make_shared<ExtraCurricularspaces> ( name , motivationalCost );
                 mpSpaces.push_back( pCSpace );
 
                 break;
@@ -86,7 +86,7 @@ bool Degrees::ReadSpacesFormFile( string path )
             {
                 iss >> token;
 
-                auto pCSpace = make_shared<CBonusSpaces> ( token );
+                auto pCSpace = make_shared<BonusSpaces> ( token );
                 mpSpaces.push_back( pCSpace );
 
                 break;
@@ -95,7 +95,7 @@ bool Degrees::ReadSpacesFormFile( string path )
             {
                 iss >> token;
 
-                auto pCSpace = make_shared<CBogusSpaces> ( token );
+                auto pCSpace = make_shared<BogusSpaces> ( token );
                 mpSpaces.push_back( pCSpace );
 
                 break;
@@ -107,7 +107,7 @@ bool Degrees::ReadSpacesFormFile( string path )
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CHearingSpace> ( name );
+                auto pCSpace = make_shared<HearingSpace> ( name );
                 mpSpaces.push_back( pCSpace );
                 hearingSpaceIndex = mpSpaces.size( ) - 1;
 
@@ -120,7 +120,7 @@ bool Degrees::ReadSpacesFormFile( string path )
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CAccusedOfPlagiarism> ( name );
+                auto pCSpace = make_shared<AccusedOfPlagiarism> ( name );
                 mpSpaces.push_back( pCSpace );
                 accusedOfPlagiarismIndex = mpSpaces.size() - 1;
 
@@ -133,7 +133,7 @@ bool Degrees::ReadSpacesFormFile( string path )
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CSkipClassesSpace> ( name );
+                auto pCSpace = make_shared<SkipClassesSpace> ( name );
                 mpSpaces.push_back( pCSpace );
 
                 break;
@@ -151,7 +151,7 @@ bool Degrees::ReadSpacesFormFile( string path )
             }    
         }
     }
-    (static_pointer_cast <CAccusedOfPlagiarism> (mpSpaces[accusedOfPlagiarismIndex]))->SetHearingSpaceIndex(hearingSpaceIndex);
+    (static_pointer_cast <AccusedOfPlagiarism> (mpSpaces[accusedOfPlagiarismIndex]))->SetHearingSpaceIndex(hearingSpaceIndex);
     return true;
 }
 
@@ -202,7 +202,7 @@ void Degrees::GameStart( int rounds )
 
             mpSpaces[mpPlayers[j]->GetPosition( )]->Print( mpPlayers[j] );
 
-            cout << mpPlayers[j]->GetName( ) << "'s motivation is " << mpPlayers[j]->GetMotivation( ) << " and success is " << mpPlayers[j]->GetScore( ) << endl << endl;
+            cout << mpPlayers[j]->GetName( ) << "'s motivation is " << mpPlayers[j]->GetMotivation( ) << " and success is " << mpPlayers[j]->GetSuccessScore( ) << endl << endl;
         }
     }
     GameOver( );
@@ -224,11 +224,11 @@ void Degrees::GameOver( )
 
     for ( int i = 0; i < mpPlayers.size( ); i++ )
     {
-        cout << mpPlayers[i]->GetName( ) << " has achieved " << mpPlayers[i]->GetScore( ) << endl;
+        cout << mpPlayers[i]->GetName( ) << " has achieved " << mpPlayers[i]->GetSuccessScore( ) << endl;
 
-        if ( maxScore < mpPlayers[i]->GetScore( ) )
+        if ( maxScore < mpPlayers[i]->GetSuccessScore( ) )
         {
-            maxScore = mpPlayers[i]->GetScore( );
+            maxScore = mpPlayers[i]->GetSuccessScore( );
             winner = i;
         }
     }

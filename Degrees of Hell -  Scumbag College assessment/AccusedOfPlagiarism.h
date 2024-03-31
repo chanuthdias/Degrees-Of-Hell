@@ -7,7 +7,7 @@
  *
  * Detailed description if needed.
  */
-class CAccusedOfPlagiarism :
+class AccusedOfPlagiarism :
     public CSpace 
 {
 private: 
@@ -27,7 +27,7 @@ public:
      * @param[in] name Name of the accused.
      * @return No return value.
      */
-    CAccusedOfPlagiarism(string name);
+    AccusedOfPlagiarism(string name);
 
     /**
      * @brief Sets the index of the hearing space.

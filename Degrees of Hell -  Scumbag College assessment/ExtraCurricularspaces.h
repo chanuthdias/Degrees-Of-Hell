@@ -6,7 +6,7 @@
  *
  * Detailed description if needed.
  */
-class CExtraCurricularspaces :
+class ExtraCurricularspaces :
     public CSpace
 {
 private:
@@ -21,7 +21,7 @@ public:
      * @param[in] motivationalCost Motivational cost associated with the space.
      * @return No return value.
      */
-    CExtraCurricularspaces(string name, int motivationalCost);
+    ExtraCurricularspaces(string name, int motivationalCost);
 
     /**
      * @brief Checks if the extra-curricular activity is completed.

@@ -128,13 +128,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Assessment.cpp" />
-    <ClCompile Include="CAccusedOfPlagiarism.cpp" />
-    <ClCompile Include="CBogusSpaces.cpp" />
-    <ClCompile Include="CBonusSpaces.cpp" />
-    <ClCompile Include="CExtraCurricularspaces.cpp" />
-    <ClCompile Include="CHearingSpace.cpp" />
+    <ClCompile Include="AccusedOfPlagiarism.cpp" />
+    <ClCompile Include="BogusSpaces.cpp" />
+    <ClCompile Include="BonusSpaces.cpp" />
+    <ClCompile Include="ExtraCurricularspaces.cpp" />
+    <ClCompile Include="HearingSpace.cpp" />
     <ClCompile Include="CPlayer.cpp" />
-    <ClCompile Include="CSkipClassesSpace.cpp" />
+    <ClCompile Include="SkipClassesSpace.cpp" />
     <ClCompile Include="CSpace.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Degrees.cpp" />
@@ -144,13 +144,13 @@
     <ClInclude Include="Assessment.h" />
     <ClInclude Include="Bogus.h" />
     <ClInclude Include="Bonus.h" />
-    <ClInclude Include="CAccusedOfPlagiarism.h" />
-    <ClInclude Include="CBogusSpaces.h" />
-    <ClInclude Include="CBonusSpaces.h" />
-    <ClInclude Include="CExtraCurricularspaces.h" />
-    <ClInclude Include="CHearingSpace.h" />
+    <ClInclude Include="AccusedOfPlagiarism.h" />
+    <ClInclude Include="BogusSpaces.h" />
+    <ClInclude Include="BonusSpaces.h" />
+    <ClInclude Include="ExtraCurricularspaces.h" />
+    <ClInclude Include="HearingSpace.h" />
     <ClInclude Include="CPlayer.h" />
-    <ClInclude Include="CSkipClassesSpace.h" />
+    <ClInclude Include="SkipClassesSpace.h" />
     <ClInclude Include="CSpace.h" />
     <ClInclude Include="Degrees.h" />
     <ClInclude Include="RandomNumberGenerator.h" />
