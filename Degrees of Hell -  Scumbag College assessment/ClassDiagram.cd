@@ -1,126 +1,126 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Assessment">
-    <Position X="11.25" Y="1.25" Width="2.25" />
+    <Position X="7.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAACEAAAAAAAAAAAEAAAAIEAAABAABAAAAAgFAAA=</HashCode>
       <FileName>Assessment.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Bogus">
-    <Position X="0.5" Y="5.25" Width="2.25" />
+    <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Bogus.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="CAccusedOfPlagiarism">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAQAAAAAAEAAE=</HashCode>
+      <FileName>CAccusedOfPlagiarism.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Bonus">
-    <Position X="0.5" Y="7.25" Width="2.25" />
+    <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAA=</HashCode>
       <FileName>Bonus.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AccusedOfPlagiarism">
-    <Position X="5.5" Y="1.25" Width="2" />
+  <Class Name="CBogusSpaces">
+    <Position X="4" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="CBogusSpaces::BogusListType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CBogusSpaces.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAEAAE=</HashCode>
-      <FileName>AccusedOfPlagiarism.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAQAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>CBogusSpaces.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BogusSpaces">
-    <Position X="7.75" Y="1.25" Width="1.5" />
+  <Class Name="CExtraCurricularspaces">
+    <Position X="9.25" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>BogusSpaces.h</FileName>
+      <HashCode>AAADAAAAAAAAAAAAAAAEAAAAIEBAABAAAAAAAAAEAAA=</HashCode>
+      <FileName>CExtraCurricularspaces.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ExtraCurricularspaces">
-    <Position X="5.75" Y="6.5" Width="1.75" />
+  <Class Name="CBonusSpaces">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="CBonusSpaces::BonusListType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CBonusSpaces.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAACAAAAAgAAAAAAAAAEAAAAIEBAABAAAAAAAAAEAAA=</HashCode>
-      <FileName>ExtraCurricularspaces.h</FileName>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAACAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>CBonusSpaces.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BonusSpaces">
-    <Position X="7.75" Y="6.5" Width="1.5" />
+  <Class Name="CHearingSpace">
+    <Position X="11" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>BonusSpaces.h</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="HearingSpace">
-    <Position X="9.5" Y="6.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>HearingSpace.h</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>CHearingSpace.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CPlayer">
-    <Position X="0.5" Y="0.5" Width="2.25" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <NestedTypes>
+      <Typedef Name="CPlayer::stringSetType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>CPlayer.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Typedef>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AIAAAACEAKAQAAAAAAAAAAABAEAAAgAAhAgAAIgQBgA=</HashCode>
+      <HashCode>AIAAAACEAKAQAAAAAAAAAAABAEAAAgAAhAgAgIAQBgA=</HashCode>
       <FileName>CPlayer.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SkipClassesSpace">
-    <Position X="9.5" Y="1.25" Width="1.5" />
+  <Class Name="CSkipClassesSpace">
+    <Position X="12.75" Y="1.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
-      <FileName>SkipClassesSpace.h</FileName>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>CSkipClassesSpace.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CSpace">
-    <Position X="7.75" Y="4" Width="1.5" />
+    <Position X="7.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBAAAEBAA=</HashCode>
       <FileName>CSpace.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Degrees">
-    <Position X="3" Y="0.5" Width="1.75" />
+    <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAgAAAAAACIAAAAAAAAAAAAAAAAAAAAAgAAAAAAIA=</HashCode>
       <FileName>Degrees.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomNumberGenerator">
-    <Position X="3" Y="3" Width="2.25" />
+    <Position X="4" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQ=</HashCode>
       <FileName>RandomNumberGenerator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Typedef Name="spacesVectorType" Collapsed="true">
-    <Position X="11.75" Y="0.5" Width="3.5" />
+    <Position X="9.75" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Types.h</FileName>
     </TypeIdentifier>
   </Typedef>
   <Typedef Name="playerVectorType" Collapsed="true">
-    <Position X="8" Y="0.5" Width="3.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Types.h</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Typedef Name="stringSetType" Collapsed="true">
-    <Position X="5.5" Y="0.5" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Types.h</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Typedef Name="BogusListType" Collapsed="true">
-    <Position X="13.75" Y="2" Width="2.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Types.h</FileName>
-    </TypeIdentifier>
-  </Typedef>
-  <Typedef Name="BonusListType" Collapsed="true">
-    <Position X="13.75" Y="1.25" Width="2.5" />
+    <Position X="6" Y="0.5" Width="3.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Types.h</FileName>

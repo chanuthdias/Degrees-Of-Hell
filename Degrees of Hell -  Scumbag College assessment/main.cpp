@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include "Degrees.h"
-#include "Constants.h"
 #define _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <crtdbg.h>
@@ -14,7 +13,7 @@ int main( )
     game.AddPlayer( "Rick" );
     game.AddPlayer( "Neil" );
     game.AddPlayer( "Mike" );
-    game.GameStart(kNumberOfRounds);
+    game.GameStart( 50 );
 
     // for memory leak detection
     //int *a = new int (5);
