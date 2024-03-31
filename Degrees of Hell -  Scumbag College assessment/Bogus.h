@@ -2,9 +2,12 @@
 #include <string>
 using namespace std;
 
-class Bogus {
+class Bogus 
+{
 public:
-    string name;
-    int motivataionLoss;
-    Bogus(string name, int gain) :name(name), motivataionLoss(gain) {}
+    string mName;
+    int mMotivataionLoss;
+    Bogus( string name , int gain ) :mName( name ), mMotivataionLoss( gain ) 
+    {
+    }
 };

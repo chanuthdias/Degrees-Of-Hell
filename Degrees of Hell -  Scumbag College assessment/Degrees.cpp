@@ -14,215 +14,223 @@
 
 using namespace std;
 
-bool Degrees::ReadSpacesFormFile(string path)
+bool Degrees::ReadSpacesFormFile( string path )
 {
     string line;
+    int hearingSpaceIndex = 0;
+    int accusedOfPlagiarismIndex = 0;
     
-    ifstream file(path);
+    ifstream file( path );
 
-    if (!file.is_open()) {
+    if ( !file.is_open( ) ) 
+    {
         cerr << "Error opening the file." << std::endl;
         return false;
     }
 
-    while (getline(file, line)) {
-
+    while ( getline ( file , line ) ) 
+    {
         string token;
-        istringstream iss(line);
+        istringstream iss( line );
         
         iss >> token;
 
-        switch (stoi(token))
+        switch ( stoi ( token ) )
         {
-            case 1: {
-
+            case 1: 
+            {
                 string assessmentType;
                 iss >> token;
                 assessmentType = token;
                 iss >> token;
                 assessmentType += " " + token;
                 iss >> token;
-                int motivationalCost = stoi(token);
+                int motivationalCost = stoi( token );
                 iss >> token;
-                int successScore = stoi(token);
+                int successScore = stoi( token );
                 iss >> token;
-                int year = stoi(token);
+                int year = stoi( token );
 
-                auto pNewAssessment = make_shared<Assessment> (assessmentType, motivationalCost, successScore, year);
-                pSpaces.push_back(pNewAssessment);
+                auto pNewAssessment = make_shared<Assessment> ( assessmentType , motivationalCost , successScore , year );
+                mpSpaces.push_back( pNewAssessment );
 
                 break;
             }
-            case 2: {
-
+            case 2: 
+            {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CSpace> (name);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CSpace> ( name );
+                mpSpaces.push_back( pCSpace );
 
                 break;
             }
-            case 3: {
+            case 3: 
+            {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
                 iss >> token;
-                int motivationalCost = stoi(token);
+                int motivationalCost = stoi( token );
 
-                auto pCSpace = make_shared<CExtraCurricularspaces> (name, motivationalCost);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CExtraCurricularspaces> ( name , motivationalCost );
+                mpSpaces.push_back( pCSpace );
 
                 break;
             }
-            case 4: {
+            case 4: 
+            {
                 iss >> token;
 
-                auto pCSpace = make_shared<CBonusSpaces> (token);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CBonusSpaces> ( token );
+                mpSpaces.push_back( pCSpace );
 
                 break;
-
             }
-            case 5: {
+            case 5: 
+            {
                 iss >> token;
 
-                auto pCSpace = make_shared<CBogusSpaces> (token);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CBogusSpaces> ( token );
+                mpSpaces.push_back( pCSpace );
 
                 break;
-
             }
-            case 6: {
+            case 6: 
+            {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CHearingSpace> (name);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CHearingSpace> ( name );
+                mpSpaces.push_back( pCSpace );
+                hearingSpaceIndex = mpSpaces.size( ) - 1;
 
                 break;
-
             }
-            case 7: {
+            case 7: 
+            {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CAccusedOfPlagiarism> (name);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CAccusedOfPlagiarism> ( name );
+                mpSpaces.push_back( pCSpace );
+                accusedOfPlagiarismIndex = mpSpaces.size() - 1;
 
                 break;
-
             }
-            case 8: {
+            case 8: 
+            {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CSkipClassesSpace> (name);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CSkipClassesSpace> ( name );
+                mpSpaces.push_back( pCSpace );
 
                 break;
-
             }
-            default: {
+            default: 
+            {
                 iss >> token;
                 string name = token;
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<CSpace> (name);
-                pSpaces.push_back(pCSpace);
+                auto pCSpace = make_shared<CSpace> ( name );
+                mpSpaces.push_back( pCSpace );
                 break;
-            }
-                
+            }    
         }
     }
+    (static_pointer_cast <CAccusedOfPlagiarism> (mpSpaces[accusedOfPlagiarismIndex]))->SetHearingSpaceIndex(hearingSpaceIndex);
     return true;
 }
 
-void Degrees::GameStart(int rounds)
+void Degrees::GameStart( int rounds )
 {
-	if(!ReadSpacesFormFile("degrees.txt"))
+    if (!ReadSpacesFormFile("degrees.txt")) 
+    {
         return;
+    }
 
-    RandomNumberGenerator::SetSeed();
+    RandomNumberGenerator::SetSeed( );
 
-    cout << "Welcome to Scumbag College" << endl << endl;
+    cout << "Welcome to Scumbag College" << endl;
 
-    for (int i = 0; i < rounds; i++)
+    for ( int i = 0; i < rounds; i++ )
     {
         cout << endl << "ROUND " << i+1 << endl;
         cout << "=========" << endl;
 
-        for (int j = 0; j < pPlayers.size(); j++)
+        for ( int j = 0; j < mpPlayers.size( ); j++ )
         {
-            int r = RandomNumberGenerator::Random();
-            cout << pPlayers[j]->GetName() << " spins " << r << endl;
-            int previousYear = pPlayers[j]->GetYear();
+            int r = RandomNumberGenerator::Random( );
+            cout << mpPlayers[j]->GetName( ) << " spins " << r << endl;
+            int previousYear = mpPlayers[j]->GetYear( );
 
-            if (pPlayers[j]->Move(r) > 0)
+            if ( mpPlayers[j]->Move( r ) > 0 )
             {
-                if (pPlayers[j]->GetYear() == 4)
+                if ( mpPlayers[j]->GetYear( ) == 4 ) 
                 {
+                    cout << mpPlayers[j]->GetName() << " has successfully completed Year " << mpPlayers[j]->GetYear() - 1 << endl;
                     cout << "congratulating on your graduation." << endl;
-                    GameOver();
+                    GameOver( );
                     return;
                 }
                 else 
                 {
-                    if (previousYear != pPlayers[j]->GetYear())
+                    if ( previousYear != mpPlayers[j]->GetYear( ) )
                     {
-                        cout << pPlayers[j]->GetName() << " attends Welcome Week and starts year " << pPlayers[j]->GetYear() << " more motivated! " << endl;
-
+                        cout << mpPlayers[j]->GetName() << " has successfully completed Year " << mpPlayers[j]->GetYear() - 1 << endl;
+                        cout << mpPlayers[j]->GetName(  ) << " attends Welcome Week and starts Year " << mpPlayers[j]->GetYear( ) << " more motivated! " << endl;
                     }
                     else 
                     {
-                        cout << pPlayers[j]->GetName() << " attends Welcome Week and starts year " << pPlayers[j]->GetYear() << " again " << endl;
+                        cout << mpPlayers[j]->GetName( ) << " attends Welcome Week and starts Year " << mpPlayers[j]->GetYear( ) << " again " << endl;
                     }
                 }
             }
-            cout << "position = " << pPlayers[j]->GetPosition() << endl;
 
-            pSpaces[pPlayers[j]->GetPosition()]->Print(pPlayers[j]);
+            mpSpaces[mpPlayers[j]->GetPosition( )]->Print( mpPlayers[j] );
 
-            cout << pPlayers[j]->GetName() << "'s motivation is " << pPlayers[j]->GetMotivation() << " and success is " << pPlayers[j]->GetScore() << endl << endl;
+            cout << mpPlayers[j]->GetName( ) << "'s motivation is " << mpPlayers[j]->GetMotivation( ) << " and success is " << mpPlayers[j]->GetScore( ) << endl << endl;
         }
     }
-
-    GameOver();
+    GameOver( );
 }
 
-void Degrees::AddPlayer(string name) 
+void Degrees::AddPlayer( string name ) 
 {
-    auto pNewPlayer = make_shared<CPlayer> (name);
-    pPlayers.push_back(pNewPlayer);
+    auto pNewPlayer = make_shared<CPlayer> ( name );
+    mpPlayers.push_back( pNewPlayer );
 }
 
-void Degrees::GameOver()
+void Degrees::GameOver( )
 {
     int winner = 0;
     int maxScore = -1;
 
     cout << endl << "Game Over" << endl;
+    cout << "=========" << endl;
 
-    for (int i = 0; i < pPlayers.size(); i++)
+    for ( int i = 0; i < mpPlayers.size( ); i++ )
     {
-        cout << pPlayers[i]->GetName() << " has achieved " << pPlayers[i]->GetScore() << endl;
-        if (maxScore < pPlayers[i]->GetScore())
+        cout << mpPlayers[i]->GetName( ) << " has achieved " << mpPlayers[i]->GetScore( ) << endl;
+
+        if ( maxScore < mpPlayers[i]->GetScore( ) )
         {
-            maxScore = pPlayers[i]->GetScore();
+            maxScore = mpPlayers[i]->GetScore( );
             winner = i;
         }
     }
-
-    cout << endl << pPlayers[winner]->GetName() << " wins! " << endl;
+    cout << endl << mpPlayers[winner]->GetName( ) << " wins! " << endl;
 }
-

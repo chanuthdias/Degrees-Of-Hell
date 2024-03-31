@@ -7,12 +7,10 @@ using namespace std;
 class CSpace
 {
 	private:
-		string name;
+		string mName;
 		
 	public:
-		CSpace(string name);
-		virtual void Print(shared_ptr<CPlayer> player);
-		string GetName();
+		CSpace( string name );
+		virtual void Print( shared_ptr<CPlayer> player );
+		string GetName( );
 };
-
-

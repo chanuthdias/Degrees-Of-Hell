@@ -5,7 +5,7 @@ class CHearingSpace :
     public CSpace
 {
 public :
-    void Print(shared_ptr<CPlayer> player)override;
-    CHearingSpace(string name);
+    void Print( shared_ptr<CPlayer> player )override;
+    CHearingSpace( string name );
 };
 

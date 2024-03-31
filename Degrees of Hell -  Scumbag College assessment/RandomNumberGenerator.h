@@ -6,7 +6,6 @@ using namespace std;
 class RandomNumberGenerator
 {
 	public:
-		static int Random();
-		static void SetSeed();
+		static int Random( );
+		static void SetSeed( );
 };
-

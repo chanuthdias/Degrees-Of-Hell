@@ -1,28 +1,28 @@
 #include "CBogusSpaces.h"
 #include "RandomNumberGenerator.h"
 
-CBogusSpaces::CBogusSpaces(string name):CSpace(name)
+CBogusSpaces::CBogusSpaces( string name ):CSpace( name )
 {
-	BogusList.push_back(Bogus("Fall asleep in a boring lecture.", 20));
-	BogusList.push_back(Bogus("Meet with coach about poor attendance.", 50));
-	BogusList.push_back(Bogus("Feel really tired after a night out.", 80));
-	BogusList.push_back(Bogus("Get kicked out of lab for messing about.", 100));
-	BogusList.push_back(Bogus("Get dumped before a big night out.", 150));
-	BogusList.push_back(Bogus("Fail an assignment.", 200));
-	BogusList.push_back(Bogus("Get caught skipping class.", 50));
-	BogusList.push_back(Bogus("Your friend drops out of uni.", 200));
-	BogusList.push_back(Bogus("Nobody turns up to teach your class.", 300));
-	BogusList.push_back(Bogus("Lecturer changes assignment schedule.", 20));
+	mBogusList.push_back( Bogus ( "Fall asleep in a boring lecture.", 20 ) );
+	mBogusList.push_back( Bogus ( "Meet with coach about poor attendance.", 50 ) );
+	mBogusList.push_back( Bogus ( "Feel really tired after a night out.", 80 ) );
+	mBogusList.push_back( Bogus ( "Get kicked out of lab for messing about.", 100 ) );
+	mBogusList.push_back( Bogus ( "Get dumped before a big night out.", 150 ) );
+	mBogusList.push_back( Bogus ( "Fail an assignment.", 200 ) );
+	mBogusList.push_back( Bogus ( "Get caught skipping class.", 50 ) );
+	mBogusList.push_back( Bogus ( "Your friend drops out of uni.", 200 ) );
+	mBogusList.push_back( Bogus ( "Nobody turns up to teach your class.", 300 ) );
+	mBogusList.push_back( Bogus ( "Lecturer changes assignment schedule.", 20 ) );
 }
 
-void CBogusSpaces::Print(shared_ptr<CPlayer> player)
+void CBogusSpaces::Print( shared_ptr<CPlayer> player )
 {
-	CSpace::Print(player);
+	CSpace::Print( player );
 
-	int r = RandomNumberGenerator::Random();
-	player->UpdateMotivation(-BogusList[r - 1].motivataionLoss);
+	int r = RandomNumberGenerator::Random( );
+	player->UpdateMotivation( -mBogusList[r - 1].mMotivataionLoss );
 	
-	cout << player->GetName() << " spins " << r << endl;
-	cout << BogusList[r - 1].name << " Loss motivation of " << BogusList[r - 1].motivataionLoss << endl;
-	cout << player->GetName() << " has " << player->GetMotivation() << endl;
+	cout << player->GetName( ) << " spins " << r << endl;
+	cout << mBogusList[r - 1].mName << " Loss motivation of " << mBogusList[r - 1].mMotivataionLoss << endl;
+	cout << player->GetName( ) << " has " << player->GetMotivation( ) << endl;
 }

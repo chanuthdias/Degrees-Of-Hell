@@ -1,10 +1,10 @@
 #include "CHearingSpace.h"
 
-void CHearingSpace::Print(shared_ptr<CPlayer> player)
+void CHearingSpace::Print( shared_ptr<CPlayer> player )
 {
-	cout << player->GetName() + " lands on Plagiarism Hearing and supports their friend" << endl;
+	cout << player->GetName( ) + " lands on Plagiarism Hearing and supports their friend" << endl;
 }
 
-CHearingSpace::CHearingSpace(string name):CSpace(name)
+CHearingSpace::CHearingSpace( string name ):CSpace( name )
 {
 }

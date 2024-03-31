@@ -7,24 +7,24 @@ using namespace std;
 class CPlayer
 {
 	private:
-		string name;
-		int motivation;
-		int success;
-		int position;
-		int year;
+		string mName;
+		int mMotivation;
+		int mSuccess;
+		int mPosition;
+		int mYear;
 		typedef set<string> stringSetType;
-		stringSetType Assessments[3];
+		stringSetType mAssessments[3];
 
 	public:
-		CPlayer(string name);
-		string GetName();
-		bool Move(int spin);
-		int GetPosition();
-		int GetYear();
-		int GetMotivation();
-		int GetScore();
-		void UpdateMotivation(int delta);
-		void UpdateSuccess(int gamma);
-		void AddCompletedAssessment(int year, string name);
+		CPlayer( string name );
+		string GetName( );
+		bool Move( int spin );
+		int GetPosition( );
+		void SetPosition(int position);
+		int GetYear( );
+		int GetMotivation( );
+		int GetScore( );
+		void UpdateMotivation( int delta );
+		void UpdateSuccess( int gamma );
+		void AddCompletedAssessment( int year , string name );
 };
-

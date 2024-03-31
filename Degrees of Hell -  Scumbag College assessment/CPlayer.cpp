@@ -1,75 +1,78 @@
 #include "CPlayer.h"
 
-CPlayer::CPlayer(string name):name(name)
+CPlayer::CPlayer ( string name ):mName( name )
 {
-
-	motivation = 1000;
-	success = 0;
-	position = 0;
-	year = 1;
+	mMotivation = 1000;
+	mSuccess = 0;
+	mPosition = 0;
+	mYear = 1;
 }
 
-string CPlayer::GetName()
+string CPlayer::GetName( )
 {
-	return name;
+	return mName;
 }
 
-bool CPlayer::Move(int spin)
+bool CPlayer::Move( int spin )
 {
-	position = (position + spin);
-	if (position >= 36)
+	mPosition = ( mPosition + spin );
+	if ( mPosition >= 36 )
 	{
-		position %= 36;
-		motivation += 250;
+		mPosition %= 36;
+		mMotivation += 250;
 
-		cout << Assessments[year - 1].size() << endl;
+		//cout << mAssessments[mYear - 1].size( ) << endl;
 
-		if (Assessments[year - 1].size() >= 3)
+		if ( mAssessments[mYear - 1].size( ) >= 3 )
 		{
-			year += 1;
+			mYear += 1;
 		}
 		return true;
 	}
 	return false;
 }
 
-int CPlayer::GetPosition()
+int CPlayer::GetPosition( )
 {
-	return position;
+	return mPosition;
 }
 
-int CPlayer::GetYear()
+void CPlayer::SetPosition( int position )
 {
-	return year;
+	mPosition = position;
 }
 
-int CPlayer::GetMotivation()
+int CPlayer::GetYear( )
 {
-	return motivation;
+	return mYear;
 }
 
-int CPlayer::GetScore()
+int CPlayer::GetMotivation( )
 {
-	return success;
+	return mMotivation;
 }
 
-void CPlayer::UpdateMotivation(int delta)
+int CPlayer::GetScore( )
 {
-	motivation += delta;
+	return mSuccess;
 }
 
-void CPlayer::UpdateSuccess(int gamma)
+void CPlayer::UpdateMotivation( int delta )
 {
-	success += gamma;
+	mMotivation += delta;
+}
 
-	if (success < 0)
+void CPlayer::UpdateSuccess( int gamma )
+{
+	mSuccess += gamma;
+
+	if ( mSuccess < 0 )
 	{
-		success = 0;
+		mSuccess = 0;
 	}
 }
 
-void CPlayer::AddCompletedAssessment(int year, string name)
+void CPlayer::AddCompletedAssessment( int year , string name )
 {
-	Assessments[year - 1].insert(name);
+	mAssessments[year - 1].insert( name );
 }
-

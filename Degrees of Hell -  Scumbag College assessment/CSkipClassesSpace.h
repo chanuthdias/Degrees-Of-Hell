@@ -5,7 +5,6 @@ class CSkipClassesSpace :
     public CSpace
 {
 public:
-    void Print(shared_ptr<CPlayer> player)override;
-    CSkipClassesSpace(string name);
+    void Print( shared_ptr<CPlayer> player )override;
+    CSkipClassesSpace( string name );
 };
-

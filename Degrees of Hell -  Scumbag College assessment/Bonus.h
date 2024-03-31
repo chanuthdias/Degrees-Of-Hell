@@ -2,9 +2,12 @@
 #include <string>
 using namespace std;
 
-class Bonus {
+class Bonus 
+{
 public:
-    string name;
-    int motivataionGain;
-    Bonus(string name, int gain) :name(name), motivataionGain(gain) {}
+    string mName;
+    int mMotivataionGain;
+    Bonus( string name , int gain ) :mName( name ), mMotivataionGain( gain ) 
+    {
+    }
 };

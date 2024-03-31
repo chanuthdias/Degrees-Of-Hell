@@ -1,17 +1,16 @@
 #include "CSpace.h"
 
-CSpace::CSpace(string name) :name(name)
+CSpace::CSpace( string name ) :mName( name )
 {
-
 }
 
-void CSpace::Print(shared_ptr<CPlayer> player)
+void CSpace::Print( shared_ptr<CPlayer> player )
 {
 	//cout << "name = " << name << endl;
-	cout << player->GetName() << " lands on " << GetName() << endl;
+	cout << player->GetName( ) << " lands on " << GetName( ) << endl;
 }
 
-string CSpace::GetName()
+string CSpace::GetName( )
 {
-	return name;
+	return mName;
 }

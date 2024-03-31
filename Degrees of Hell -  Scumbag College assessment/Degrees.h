@@ -7,15 +7,12 @@ using namespace std;
 class Degrees
 {
 	private:
-		spacesVectorType pSpaces;
-		playerVectorType pPlayers;
+		spacesVectorType mpSpaces;
+		playerVectorType mpPlayers;
 
 	public:
-		bool ReadSpacesFormFile(string path);
-		void GameStart(int rounds);
-		void AddPlayer(string name);
-		void GameOver();
-		
+		bool ReadSpacesFormFile( string path );
+		void GameStart( int rounds );
+		void AddPlayer( string name );
+		void GameOver( );
 };
-
-

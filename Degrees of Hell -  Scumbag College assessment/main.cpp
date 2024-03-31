@@ -3,12 +3,12 @@
 #include "Degrees.h"
 using namespace std;
 
-int main()
+int main( )
 {
     Degrees game;
-    game.AddPlayer("Vyvyan");
-    game.AddPlayer("Rick");
-    game.AddPlayer("Neil");
-    game.AddPlayer("Mike");
-    game.GameStart(50);
+    game.AddPlayer( "Vyvyan" );
+    game.AddPlayer( "Rick" );
+    //game.AddPlayer( "Neil" );
+    //game.AddPlayer( "Mike" );
+    game.GameStart( 50 );
 }

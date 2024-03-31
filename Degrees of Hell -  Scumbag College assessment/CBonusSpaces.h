@@ -8,11 +8,9 @@ class CBonusSpaces :
 {
 private:
     typedef vector<Bonus> BonusListType;
-    BonusListType BonusList;
+    BonusListType mBonusList;
 
 public:
-    CBonusSpaces(string name);
-    void Print(shared_ptr<CPlayer> player) override;
+    CBonusSpaces( string name );
+    void Print( shared_ptr<CPlayer> player ) override;
 };
-
-

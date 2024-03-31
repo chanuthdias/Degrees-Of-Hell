@@ -8,9 +8,9 @@ class CBogusSpaces :
 {
 private:
     typedef vector<Bogus> BogusListType;
-    BogusListType BogusList;
+    BogusListType mBogusList;
 
 public:
-    CBogusSpaces(string name);
-    void Print(shared_ptr<CPlayer> player) override;
+    CBogusSpaces( string name );
+    void Print( shared_ptr<CPlayer> player ) override;
 };

@@ -4,8 +4,10 @@
 class CAccusedOfPlagiarism :
     public CSpace
 {
+private:
+    int mHearingSpaceIndex;
 public:
-    void Print(shared_ptr<CPlayer> player)override;
-    CAccusedOfPlagiarism(string name);
+    void Print( shared_ptr<CPlayer> player )override;
+    CAccusedOfPlagiarism( string name );
+    void SetHearingSpaceIndex( int index );
 };
-
