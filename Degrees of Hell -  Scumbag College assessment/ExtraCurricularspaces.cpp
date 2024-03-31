@@ -1,4 +1,5 @@
 #include "ExtraCurricularspaces.h"
+#include "Constants.h"
 
 ExtraCurricularspaces::ExtraCurricularspaces( string name, int motivationalCost ) :CSpace( name ), mCost( motivationalCost )
 {
@@ -17,7 +18,7 @@ void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
                 SetComplete(player);
 
                 int totalNumberCompleted = CompletedBy().size();
-                int successPotion = floor(20 / float(totalNumberCompleted));
+                int successPotion = floor(kExtraCurricularSuccess / float(totalNumberCompleted));
 
                 player->UpdateMotivation( -GetMotivationCost() / 2 );
                 cout << player->GetName() << " undertakes " << GetName() << " activity for " << GetMotivationCost() / 2 << " and achieves " << successPotion << endl;
@@ -43,7 +44,7 @@ void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
         if ( player->GetMotivation( ) >= GetMotivationCost( ) )
         {
             player->UpdateMotivation( -GetMotivationCost( ) );
-            player->UpdateSuccess( 20 );
+            player->UpdateSuccess(kExtraCurricularSuccess);
             SetComplete( player );
             cout << player->GetName( ) << " undertakes " << GetName( ) << " activity for " << GetMotivationCost( ) << " and achieves 20" << endl;   
         }

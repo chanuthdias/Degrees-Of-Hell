@@ -1,4 +1,5 @@
 #include "CPlayer.h"
+#include "Constants.h"
 
 CPlayer::CPlayer ( string name ):mName( name )
 {
@@ -16,9 +17,9 @@ string CPlayer::GetName( )
 bool CPlayer::Move( int spin )
 {
 	mPosition = ( mPosition + spin );
-	if ( mPosition >= 36 )
+	if ( mPosition >= kNumberOfSpaces)
 	{
-		mPosition %= 36;
+		mPosition %= kNumberOfSpaces;
 		mMotivation += 250;
 
 		//cout << mAssessments[mYear - 1].size( ) << endl;
