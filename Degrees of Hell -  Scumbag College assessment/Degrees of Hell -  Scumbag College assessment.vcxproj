@@ -147,6 +147,7 @@
     <ClInclude Include="AccusedOfPlagiarism.h" />
     <ClInclude Include="BogusSpaces.h" />
     <ClInclude Include="BonusSpaces.h" />
+    <ClInclude Include="Constants.h" />
     <ClInclude Include="ExtraCurricularspaces.h" />
     <ClInclude Include="HearingSpace.h" />
     <ClInclude Include="CPlayer.h" />
