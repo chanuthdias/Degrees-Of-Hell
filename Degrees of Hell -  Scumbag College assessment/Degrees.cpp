@@ -2,7 +2,7 @@
 #include "Assessment.h"
 #include "RandomNumberGenerator.h"
 #include "CPlayer.h"
-#include "HearingSpace.h"
+#include "PlagiarismHearingSpace.h"
 #include "SkipClassesSpace.h"
 #include "AccusedOfPlagiarism.h"
 #include "ExtraCurricularspaces.h"
@@ -77,7 +77,7 @@ bool Degrees::ReadSpacesFormFile( string path )
                 iss >> token;
                 int motivationalCost = stoi( token );
 
-                auto pCSpace = make_shared<ExtraCurricularspaces> ( name , motivationalCost );
+                auto pCSpace = make_shared<ExtraCurricularSpaces> ( name , motivationalCost );
                 mpSpaces.push_back( pCSpace );
 
                 break;
@@ -107,7 +107,7 @@ bool Degrees::ReadSpacesFormFile( string path )
                 iss >> token;
                 name += " " + token;
 
-                auto pCSpace = make_shared<HearingSpace> ( name );
+                auto pCSpace = make_shared<PlagiarismHearingSpace> ( name );
                 mpSpaces.push_back( pCSpace );
                 hearingSpaceIndex = mpSpaces.size( ) - 1;
 

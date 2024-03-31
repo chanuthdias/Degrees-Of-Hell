@@ -7,7 +7,7 @@
  *
  * Detailed description if needed.
  */
-class HearingSpace :
+class PlagiarismHearingSpace :
     public CSpace
 {
 public:
@@ -25,5 +25,5 @@ public:
      * @param[in] name Name of the hearing space.
      * @return No return value.
      */
-    HearingSpace(string name);
+    PlagiarismHearingSpace(string name);
 };

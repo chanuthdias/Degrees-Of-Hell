@@ -131,8 +131,8 @@
     <ClCompile Include="AccusedOfPlagiarism.cpp" />
     <ClCompile Include="BogusSpaces.cpp" />
     <ClCompile Include="BonusSpaces.cpp" />
-    <ClCompile Include="ExtraCurricularspaces.cpp" />
-    <ClCompile Include="HearingSpace.cpp" />
+    <ClCompile Include="ExtraCurricularSpaces.cpp" />
+    <ClCompile Include="PlagiarismHearingSpace.cpp" />
     <ClCompile Include="CPlayer.cpp" />
     <ClCompile Include="SkipClassesSpace.cpp" />
     <ClCompile Include="CSpace.cpp" />
@@ -148,8 +148,8 @@
     <ClInclude Include="BogusSpaces.h" />
     <ClInclude Include="BonusSpaces.h" />
     <ClInclude Include="Constants.h" />
-    <ClInclude Include="ExtraCurricularspaces.h" />
-    <ClInclude Include="HearingSpace.h" />
+    <ClInclude Include="ExtraCurricularSpaces.h" />
+    <ClInclude Include="PlagiarismHearingSpace.h" />
     <ClInclude Include="CPlayer.h" />
     <ClInclude Include="SkipClassesSpace.h" />
     <ClInclude Include="CSpace.h" />

@@ -1,11 +1,11 @@
-#include "ExtraCurricularspaces.h"
+#include "ExtraCurricularSpaces.h"
 #include "Constants.h"
 
-ExtraCurricularspaces::ExtraCurricularspaces( string name, int motivationalCost ) :CSpace( name ), mCost( motivationalCost )
+ExtraCurricularSpaces::ExtraCurricularSpaces( string name, int motivationalCost ) :CSpace( name ), mCost( motivationalCost )
 {
 }
 
-void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
+void ExtraCurricularSpaces::Print( shared_ptr<CPlayer> player )
 {
     CSpace::Print( player );
 
@@ -55,14 +55,14 @@ void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
     }
 }
 
-bool ExtraCurricularspaces::IsCompleted()
+bool ExtraCurricularSpaces::IsCompleted()
 {
     if (mCompletedPlayers.size() > 0)
         return true;
     return false;
 }
 
-bool ExtraCurricularspaces::IsCompleted(shared_ptr<CPlayer> player)
+bool ExtraCurricularSpaces::IsCompleted(shared_ptr<CPlayer> player)
 {
     for (int i = 0; i < mCompletedPlayers.size(); i++)
     {
@@ -74,17 +74,17 @@ bool ExtraCurricularspaces::IsCompleted(shared_ptr<CPlayer> player)
     return false;
 }
 
-playerVectorType ExtraCurricularspaces::CompletedBy()
+playerVectorType ExtraCurricularSpaces::CompletedBy()
 {
     return mCompletedPlayers;
 }
 
-int ExtraCurricularspaces::GetMotivationCost( )
+int ExtraCurricularSpaces::GetMotivationCost( )
 {
     return mCost;
 }
 
-void ExtraCurricularspaces::SetComplete( shared_ptr<CPlayer> player )
+void ExtraCurricularSpaces::SetComplete( shared_ptr<CPlayer> player )
 {
     mCompletedPlayers.push_back(player);
 }
