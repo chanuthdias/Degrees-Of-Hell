@@ -181,7 +181,7 @@ void Degrees::GameStart( int rounds )
             {
                 if ( mpPlayers[j]->GetYear( ) == 4 ) 
                 {
-                    cout << mpPlayers[j]->GetName() << " has successfully completed Year " << mpPlayers[j]->GetYear() - 1 << endl;
+                    cout << mpPlayers[j]->GetName( ) << " has successfully completed Year " << mpPlayers[j]->GetYear( ) - 1 << endl;
                     cout << "congratulating on your graduation." << endl;
                     GameOver( );
                     return;
@@ -190,8 +190,8 @@ void Degrees::GameStart( int rounds )
                 {
                     if ( previousYear != mpPlayers[j]->GetYear( ) )
                     {
-                        cout << mpPlayers[j]->GetName() << " has successfully completed Year " << mpPlayers[j]->GetYear() - 1 << endl;
-                        cout << mpPlayers[j]->GetName(  ) << " attends Welcome Week and starts Year " << mpPlayers[j]->GetYear( ) << " more motivated! " << endl;
+                        cout << mpPlayers[j]->GetName( ) << " has successfully completed Year " << mpPlayers[j]->GetYear( ) - 1 << endl;
+                        cout << mpPlayers[j]->GetName( ) << " attends Welcome Week and starts Year " << mpPlayers[j]->GetYear( ) << " more motivated! " << endl;
                     }
                     else 
                     {

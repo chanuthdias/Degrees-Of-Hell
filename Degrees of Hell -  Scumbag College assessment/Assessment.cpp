@@ -16,12 +16,25 @@ void Assessment::Print( shared_ptr<CPlayer> player )
         {
             if ( player->GetMotivation( ) >= GetMotivationCost( ) / 2 )
             {
+                SetComplete(player);
+
+                int totalNumberCompleted = CompletedBy().size();
+
                 player->UpdateMotivation( -GetMotivationCost( ) / 2 );
-                player->UpdateSuccess( GetSuccessScore( ) / 2 );
-                CompletedBy( )[0]->UpdateSuccess( GetSuccessScore( ) / 2 );
-                cout << player->GetName( ) << " completes " << GetName( ) << " for " << GetMotivationCost( ) / 2 << " and achieves " << GetSuccessScore( ) / 2 << endl;
-                cout << CompletedBy( )[0]->GetName( ) << " helps and achieves " << GetSuccessScore( ) / 2 << endl;
-                SetComplete( player );
+                
+                int successPotion = round(GetSuccessScore() / float(totalNumberCompleted));
+                
+                cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() / 2 << " and achieves " << successPotion << endl;
+
+                for ( int i = 0; i < totalNumberCompleted; i++ )
+                {
+                    CompletedBy( )[i]->UpdateSuccess( successPotion );
+                    if (i != totalNumberCompleted - 1) 
+                    {
+                        cout << CompletedBy()[i]->GetName() << " helps and achieves " << successPotion << endl;
+                    }
+                }
+
                 player->AddCompletedAssessment( mYear , GetName( ) );
             }
             else 
