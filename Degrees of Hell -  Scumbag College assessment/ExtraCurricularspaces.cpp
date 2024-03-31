@@ -1,6 +1,5 @@
 #include "ExtraCurricularspaces.h"
 
-
 ExtraCurricularspaces::ExtraCurricularspaces( string name, int motivationalCost ) :CSpace( name ), mCost( motivationalCost )
 {
 }
@@ -11,15 +10,27 @@ void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
 
     if ( IsCompleted( ) )
     {
-        if ( CompletedBy( )->GetName( ) != player->GetName( ) )
+        if (!IsCompleted(player))
         {
             if ( player->GetMotivation( ) >= GetMotivationCost( )/2 ) 
             {
+                SetComplete(player);
+
+                int totalNumberCompleted = CompletedBy().size();
+                int successPotion = floor(20 / float(totalNumberCompleted));
+
                 player->UpdateMotivation( -GetMotivationCost() / 2 );
-                player->UpdateSuccess( 10 );
-                CompletedBy( )->UpdateSuccess( 10 );
-                CompletedBy( )->UpdateMotivation( GetMotivationCost( ) / 2 );
-                cout << player->GetName( ) << " motivates " << CompletedBy( )->GetName( ) << " by joining their activity" << endl;
+                cout << player->GetName() << " undertakes " << GetName() << " activity for " << GetMotivationCost() / 2 << " and achieves " << successPotion << endl;
+                player->UpdateSuccess( successPotion );
+
+                for (int i = 0; i < totalNumberCompleted - 1; i++)
+                {
+                    CompletedBy()[i]->UpdateSuccess(successPotion);
+                    cout << player->GetName() << " motivates " << CompletedBy()[i]->GetName() << " by 50 joining their activity" << endl;
+                    cout << " ..." << CompletedBy()[i]->GetName() << " helps and achieves " << successPotion << endl;
+                    CompletedBy()[i]->UpdateMotivation(GetMotivationCost() / 2);
+
+                }
             }
             else 
             {
@@ -43,16 +54,28 @@ void ExtraCurricularspaces::Print( shared_ptr<CPlayer> player )
     }
 }
 
-bool ExtraCurricularspaces::IsCompleted( )
+bool ExtraCurricularspaces::IsCompleted()
 {
-    if ( mCompletedByPlayer != nullptr )
+    if (mCompletedPlayers.size() > 0)
         return true;
     return false;
 }
 
-shared_ptr<CPlayer> ExtraCurricularspaces::CompletedBy( )
+bool ExtraCurricularspaces::IsCompleted(shared_ptr<CPlayer> player)
 {
-    return mCompletedByPlayer;
+    for (int i = 0; i < mCompletedPlayers.size(); i++)
+    {
+        if (mCompletedPlayers[i]->GetName() == player->GetName())
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+playerVectorType ExtraCurricularspaces::CompletedBy()
+{
+    return mCompletedPlayers;
 }
 
 int ExtraCurricularspaces::GetMotivationCost( )
@@ -62,5 +85,5 @@ int ExtraCurricularspaces::GetMotivationCost( )
 
 void ExtraCurricularspaces::SetComplete( shared_ptr<CPlayer> player )
 {
-    mCompletedByPlayer = player;
+    mCompletedPlayers.push_back(player);
 }

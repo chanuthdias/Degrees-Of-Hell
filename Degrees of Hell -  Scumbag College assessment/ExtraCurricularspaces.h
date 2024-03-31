@@ -1,5 +1,6 @@
 #pragma once
 #include "CSpace.h"
+#include "Types.h"
 
 /**
  * @brief CExtraCurricularspaces class represents extra-curricular spaces in the game.
@@ -11,7 +12,7 @@ class ExtraCurricularspaces :
 {
 private:
     int mCost; /**< Cost associated with the extra-curricular space. */
-    shared_ptr<CPlayer> mCompletedByPlayer = nullptr; /**< Player who completed the extra-curricular activity. */
+    playerVectorType mCompletedPlayers; /**< List of players who have completed the assignment. */
 
 public:
     /**
@@ -31,11 +32,19 @@ public:
     bool IsCompleted();
 
     /**
-     * @brief Gets the player who completed the extra-curricular activity.
-     *
-     * @return Pointer to the player who completed the activity.
-     */
-    shared_ptr<CPlayer> CompletedBy();
+    * @brief Checks if the assessment is completed by a specific player.
+    *
+    * @param[in] player The player to check completion for.
+    * @return True if completed by the player, False otherwise.
+    */
+    bool IsCompleted(shared_ptr < CPlayer > player);
+
+    /**
+    * @brief Gets the list of players who have completed the assessment.
+    *
+    * @return List of completed players.
+    */
+    playerVectorType CompletedBy();
 
     /**
      * @brief Gets the motivational cost of the extra-curricular activity.

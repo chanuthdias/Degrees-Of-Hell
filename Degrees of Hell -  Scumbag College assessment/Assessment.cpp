@@ -22,7 +22,7 @@ void Assessment::Print( shared_ptr<CPlayer> player )
 
                 player->UpdateMotivation( -GetMotivationCost( ) / 2 );
                 
-                int successPotion = round(GetSuccessScore() / float(totalNumberCompleted));
+                int successPotion = floor(GetSuccessScore() / float(totalNumberCompleted));
                 
                 cout << player->GetName() << " completes " << GetName() << " for " << GetMotivationCost() / 2 << " and achieves " << successPotion << endl;
 
@@ -31,7 +31,7 @@ void Assessment::Print( shared_ptr<CPlayer> player )
                     CompletedBy( )[i]->UpdateSuccess( successPotion );
                     if (i != totalNumberCompleted - 1) 
                     {
-                        cout << CompletedBy()[i]->GetName() << " helps and achieves " << successPotion << endl;
+                        cout << " ..." << CompletedBy()[i]->GetName() << " helps and achieves " << successPotion << endl;
                     }
                 }
 

@@ -1,5 +1,7 @@
 #pragma once
 #include <vector>
+#include "CPlayer.h"
+#include "CSpace.h"
 
 /**
  * @brief Type definition for a vector of shared pointers to CSpace objects.
